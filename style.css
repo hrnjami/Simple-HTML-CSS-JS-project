@@ -1,0 +1,51 @@
+body
+{
+  background-color: lemonchiffon !important;
+  width:100%;
+  height:100%;
+}
+.nav-bar
+{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  
+}
+.navbar-brand 
+{
+	padding-left:50px!important; 
+}
+
+.error{
+  color:red;
+}
+
+@font-face {
+  font-family: "My Custom Font2";
+  src: url("BRADHI.ttf");
+}
+
+
+.btn 
+{
+  margin:auto !important;
+  padding: 6px 10px;
+
+}
+
+#section2{
+  padding-top:3%;
+  background-image: url("bluestriped.jpg");
+  box-sizing: border-box;
+  background-size: contain;
+  min-height: 800px;
+  width: 100%;
+  font-family: "My Custom Font2";
+  font-weight: 900;
+  color:black;
+
+}
+
+
+
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<title> Unos Robe </title>
+</head>
+
+<body>
+<!-- zaglavlje -->
+<section id="nav-bar">
+	<nav class="navbar bg-secondary">
+  <span class="navbar-brand h1" style="color:white; font-family: 'My Custom Font2'; font-weight: 900;;">Rad sa artiklima</span>
+</nav>
+</section>
+
+
+	
+<!--jumbotron section with row, col and offset classes to satisfy Bootstrap's grid rules-->
+
+<div class="container-fluid" id="section2">
+
+<div class="container-fluid">
+    <div id="unos" class="wrapper">
+    <div class="row">
+
+        <div class="wrapper offset-md-2 col-md-8 offset-md-2 col-12">
+        <h2 style="text-align:center; font-weight: 900;"> Unesite podatke u formular </h2>
+
+        <form id = "formUnos" action="" method="">
+            
+            <div class="form-group contact h5">
+                <div class="font-weight-bolder">
+                    <div >
+                    <label for="barkod">Barkod: </label>
+                    <input class="form-control" type="number" id="barkod" placeholder="">
+                    <p id='errorBarkod' class='error' hidden>Ovo polje ne moze biti prazno. Dozvoljene su samo cifre. </p>
+                </div>
+            </div>
+
+            <div class="form-group contact h5">
+                <div class="font-weight-bolder">
+                    <label for="naziv"> Naziv: </label>
+                    <input class="form-control" id="naziv" type="text" placeholder="">
+                    <p id='errorNaziv' class='error' hidden>Ovo polje ne moze biti prazno</p>
+                </div>
+            </div>
+
+            <div class="form-group contact h5">
+                <div class="font-weight-bolder">
+                    <label for="opis"> Opis artikla: </label>
+                    <input class="form-control" id="opis" type="text" placeholder="">
+                    <p id='errorOpis' class='error' hidden>Unesite opis (maksimalan dozvoljeni unos: 200 karaktera)</p>
+                </div>
+            </div>
+
+            <div class="form-group contact h5">
+                <div class="font-weight-bolder">
+                    <label for="vrsta"> Vrsta artikla: </label>
+                    <select class="form-control" id="vrsta" name="vrsta" placeholder="Izaberi opcije iz padajuce liste">
+                        <option class="font-weight-bolder" value = "papirna_galanterija" >Papirna galanterija</option>
+                        <option class="font-weight-bolder" value= "vlazne_maramice">Vlazne maramice</option>
+                        <option class="font-weight-bolder" value = "kozmetika">Kozmetika</option>
+                    </select>
+                    <p id='errorVrsta' class='error' hidden>Morate izabrati opciju iz padajuce liste</p>
+                </div>
+            </div>
+
+            <div class="form-group contact h5">
+                <div class="font-weight-bolder">
+                    <label for="ocena"> Osnovna cena: </label>
+                    <input class="form-control" id="ocena" type="number" placeholder="">
+                    <p id='errorOcena' class='error' hidden>Ovo polje ne moze biti prazno. Dozvoljene su samo cifre.</p>
+                </div>
+            </div>
+
+            <div class="form-group contact h5">
+                <div class="font-weight-bolder">
+                    <label for='pdvCena'> Cena sa PDV-om: </label>
+                    <input class="form-control" id="pdvCena" type="number" placeholder="PDV: 20% od cene" disabled>
+                </div>
+            </div>
+
+            <div class="form-group contact h5">
+                <div class="font-weight-bolder">
+                    <label for="pic"> Slika artikla: </label>
+                    <input class="font-weight-bolder"  id="pic" type="file" name="pic" accept=".png" >
+                    
+                </div>
+            </div>
+
+                <div class="form-group h5">		
+                    <button class="btn btn-danger font-weight-bolder" type="button" id="toggle-prikaz" value="Prikazi unete podatke" >Prikazi unete podatke</button> 
+                </div>
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+        
+
+<div class="container-fluid">
+    <div id="prikaz" class="wrapper" >
+    <div class = "row" >
+            <div class="offset-md-2 col-md-8 offset-md-2 col-12">
+            <table class="table table-bordered table-striped table-dark">
+                <thead>
+                      <tr>
+                        <td >Barkod </th>
+                        <td id="tdBarkod" colspan="3"> </td>
+                      </tr>
+                </thead>
+                <tbody>
+                      <tr>
+                        <th >Naziv</th>
+                        <td id="tdNaziv" colspan="3"> </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Opis artikla</th>
+                        <td id="tdOpis" colspan="3"> </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Vrsta artikla</th>
+                        <td id = "tdVrsta" colspan="3"> </td>
+                      </tr>
+
+                      <tr>
+                        <th >Osnovna cena</th>
+                        <td id = "tdOcena" colspan="3"> </td>
+                      </tr>
+
+                      <tr>
+                            <th >Cena sa PDV-om</th>
+                            <td id = 'tdPDV' colspan="3"> </td>
+                       </tr>
+
+                       <tr>
+                            <th >Slika artikla</th>
+                            <td id = 'tdPic' colspan="3"><img src="" id="miniPic" width="200px"  height="200px" /> </td>
+                          </tr>
+
+                        <tr>
+                            <th >Datum i vreme azuriranja cena </th>
+                            <td id = "tdDatum" colspan="3"> </td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <div class="h5">		
+                        <button class="btn btn-danger font-weight-bolder" type="button" id="toggle-unos" value="nazad_na_formular">Vrati se na formular</button>
+                  </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</body>	
+<script src="formValidating.js"> </script>
+
+</html>
